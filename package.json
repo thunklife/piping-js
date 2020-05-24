@@ -9,6 +9,10 @@
   "author": "jessewilliamson@fastmail.fm",
   "license": "ISC",
   "dependencies": {
+    "core.lambda": "^1.0.0",
+    "core.operators": "^1.0.0",
+    "data.maybe": "^1.2.3",
+    "folktale": "^2.3.2",
     "lodash": "^4.17.15",
     "ramda": "^0.27.0",
     "ramda-fantasy": "^0.8.0",

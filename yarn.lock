@@ -2,6 +2,28 @@
 # yarn lockfile v1
 
 
+core.lambda@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/core.lambda/-/core.lambda-1.0.0.tgz#1260b257d48b6f830c060bf1fce567669f4d1d35"
+  integrity sha1-EmCyV9SLb4MMBgvx/OVnZp9NHTU=
+
+core.operators@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/core.operators/-/core.operators-1.0.0.tgz#f1eb7cc918c9334b3c9f891a464b899919a7b3a8"
+  integrity sha1-8et8yRjJM0s8n4kaRkuJmRmns6g=
+  dependencies:
+    core.lambda "^1.0.0"
+
+data.maybe@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/data.maybe/-/data.maybe-1.2.3.tgz#940475f8ccddc10eb218b73125bdfb449d6d9ebc"
+  integrity sha512-iiw1TvVqHTOpnIwueo9jE3a2UFqblSHobzYTzvbvabNRnZq+D/tFi8J4olZ0viqbWkm7zKcPtu1/EzGhEyTH8A==
+
+folktale@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/folktale/-/folktale-2.3.2.tgz#38231b039e5ef36989920cbf805bf6b227bf4fd4"
+  integrity sha512-+8GbtQBwEqutP0v3uajDDoN64K2ehmHd0cjlghhxh0WpcfPzAIjPA03e1VvHlxL02FVGR0A6lwXsNQKn3H1RNQ==
+
 lodash@^4.17.15:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
