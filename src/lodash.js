@@ -1,12 +1,13 @@
 import {pipe, escapeRegExp} from 'lodash/fp';
 
 const strToArray = str => [...str];
-const insert = index => val => arr => arr.splice(index, index, val) && arr;
+const prepend = val => arr => [val, ...arr];
+const append = val => arr => [...arr, val];
 const join = char => arr => arr.join(char);
 const toExactRexExpStr = pipe(
   strToArray,
-  insert(Infinity)('?'),
-  insert(0)('^'),
+  append('?'),
+  prepend('^'),
   join(''),
   escapeRegExp
 );

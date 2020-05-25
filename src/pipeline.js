@@ -1,13 +1,14 @@
 import {escapeRegExp} from 'lodash';
 
 const strToArray = str => [...str];
-const insert = index => val => arr => arr.splice(index, index, val) && arr;
+const prepend = val => arr => [val, ...arr];
+const append = val => arr => [...arr, val];
 const join = char => arr => arr.join(char);
 const toExactRegExpStr = str => (
   str
   |> strToArray
-  |> insert(Infinity)('?')
-  |> insert(0)('^')
+  |> append('?')
+  |> prepend('^')
   |> join('')
   |> escapeRegExp
 );

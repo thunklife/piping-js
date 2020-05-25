@@ -1,5 +1,5 @@
-import Maybe from 'data.maybe';
-import {curry} from 'core.lambda';
+import Maybe from 'folktale/maybe';
+import {curry} from 'folktale/core/lambda';
 import F from 'folktale/fantasy-land';
 import {escapeRegExp} from 'lodash';
 
@@ -8,14 +8,15 @@ const traverse = curry(3, (ctor,f ,src) => {
   const res = map(f, src);
   return ctor(map(({value}) => value, res));
 });
-const strToArray = str => [...str];
-const insert = curry(3, (index, val, arr) =>  arr.splice(index, val) && arr);
+const strToArray = str => [...str]
+const prepend = curry(2, (val, arr) => [val, ...arr]);
+const append = curry(2, (val, arr) => [...arr, val]);
 const join = curry(2, (char, arr) => arr.join(char));
 const toExactRegExpStr = str => (
   Maybe.of(str)
   .map(strToArray)
-  .map(insert(Infinity, '?'))
-  .map(insert(0, '^'))
+  .map(append('?'))
+  .map(prepend('^'))
   .map(join(''))
   .map(escapeRegExp)
 );
