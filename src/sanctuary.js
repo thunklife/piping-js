@@ -1,22 +1,15 @@
-const {escapeRegExp} = require('lodash')
-const S = require('sanctuary')
+import {escapeRegExp} from 'lodash';
+import {pipe, append, prepend, joinWith} from 'sanctuary';
 
 const strToArray = str => [...str]
+const toExactRegExpStr = str => pipe([
+  strToArray,
+  append('?'),
+  prepend('^'),
+  joinWith(''),
+  escapeRegExp
+])(str);
+const strs = ['foo.bar.js', '2.3.js', '4.5.js'];
+const res = strs.map(toExactRegExpStr);
 
-const toExactRexExpStr = (
-  S.pipe(
-    [
-      strToArray,
-      S.append('?'),
-      S.prepend('^'),
-      S.joinWith(''),
-      escapeRegExp
-    ]
-  )
-)
-
-
-const strs = ['foo.bar.js', '2.3.js', '4.5.js']
-const res = S.map(toExactRexExpStr)(strs)
-
-console.log(res)
+console.log(res);
