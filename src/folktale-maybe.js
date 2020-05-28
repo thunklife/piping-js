@@ -14,11 +14,11 @@ const append = curry(2, (val, arr) => [...arr, val]);
 const join = curry(2, (char, arr) => arr.join(char));
 const toExactRegExpStr = str => (
   Maybe.of(str)
+  .map(escapeRegExp)
   .map(strToArray)
   .map(append('?'))
   .map(prepend('^'))
   .map(join(''))
-  .map(escapeRegExp)
 );
 const strs = ['foo.bar.js', '2.3.js', '4.5.js'];
 const res = strs.map(toExactRegExpStr);

@@ -6,11 +6,11 @@ const strToArray = str => [...str];
 const toExactRegExpStr = str => (
   pipe(
     [
+      map(escapeRegExp),
       map(strToArray),
       map(append('?')),
       map(prepend('^')),
-      map(joinWith('')),
-      map(escapeRegExp)
+      map(joinWith(''))
     ]
   )
   (Maybe.Just(str))
